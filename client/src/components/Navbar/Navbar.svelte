@@ -1,0 +1,38 @@
+<script lang="ts">
+	import auth from '$stores/auth';
+	import { page } from '$app/stores';
+
+	import Menu from './components/Menu/Menu.svelte';
+	import Logo from './components/Logo/Logo.svelte';
+
+	let pathname = '/';
+
+	$: pathname = $page.url.pathname.split('/').slice(0, 2).join('/');
+</script>
+
+<nav>
+	<Logo />
+
+	<div data-sveltekit-preload-data class="ml-auto space-x-2">
+		{#if $auth}
+			<a href="/" class="link" class:active={pathname === '/'}>首页</a>
+			<a href="/table" class="link" class:active={pathname === '/table'}>表格</a>
+		{/if}
+	</div>
+
+	<Menu />
+</nav>
+
+<style lang="postcss">
+	nav {
+		height: 60px;
+		@apply flex flex-row items-center gap-4 px-4 md:px-20 border-b border-b-gray-300;
+	}
+	.link {
+		@apply text-sm text-gray-500;
+		&:hover,
+		&.active {
+			@apply text-black;
+		}
+	}
+</style>

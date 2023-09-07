@@ -1,0 +1,41 @@
+<script lang="ts">
+	import '../form.css';
+	import inputs from '$stores/inputs';
+
+	export let defaultValue: string;
+
+	let error = '';
+
+	$: inputs.register('student_id', defaultValue, validate);
+	$: error = $inputs.find((input) => input.id === 'student_id')?.error || '';
+
+	function handleChange(event: Event) {
+		const value = (event.target as HTMLInputElement).value;
+		inputs.update('student_id', value);
+	}
+
+	function validate(value: string) {
+		if (value.length === 0) return '学号不能为空';
+		else if (value.length != 12) return '学号应该是12位';
+		else return '';
+	}
+</script>
+
+<div class="form" class:error>
+	<h1 class="title">
+		<span>学号</span>
+		<span class="text-red-600">*</span>
+	</h1>
+	<label for="student_id" class="label">学号是你的个人ID，请确保学号的准确性和一致性</label>
+	<input
+		id="student_id"
+		name="student_id"
+		type="number"
+		class="input"
+		placeholder="输入你的学号"
+		value={defaultValue}
+		readonly={defaultValue !== ''}
+		on:change={handleChange}
+	/>
+	<p class="err-msg">{error}</p>
+</div>
