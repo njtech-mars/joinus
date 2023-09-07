@@ -1,4 +1,4 @@
-# Mars 工作室名表单 ![docker](https://github.com/MR-Addict/stas-joinus/actions/workflows/docker.yml/badge.svg)
+# Mars 工作室名表单 ![docker](https://github.com/njtech-mars/joinus/actions/workflows/docker.yml/badge.svg)
 
 本项目采用 monorepo 的形式，将前后端放在一个 git 仓库当中。
 
@@ -6,7 +6,7 @@
 
 ## 1. 环境变量
 
-本项目用到了以下两个环境变量：
+本项目用到了以下几个环境变量：
 
 | 变量名       | 解释                     | 备注              |
 | :----------- | :----------------------- | :---------------- |
@@ -24,7 +24,7 @@
 
 理论上本项目是不需要 Docker 就可以启动的，但是使用 Docker 可以方便管理和部署。
 
-新建一个 docker-compose.yaml 文件，根据需要修改 PASSWORD 环境变量：
+新建一个 docker-compose.yaml 文件，根据需要其中的环境变量：
 
 ```yaml
 version: "3"
