@@ -3,7 +3,13 @@
 
 	export let showModal: boolean;
 
-	$: if (browser) document.body.style.overflowY = showModal ? 'hidden' : 'auto';
+	$: if (browser) {
+		if (showModal) {
+			const x = window.scrollX;
+			const y = window.scrollY;
+			window.onscroll = () => window.scrollTo(x, y);
+		} else window.onscroll = () => {};
+	}
 </script>
 
 {#if showModal}

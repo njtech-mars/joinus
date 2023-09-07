@@ -27,9 +27,9 @@
 		@apply max-w-xs text-center text-gray-600;
 	}
 	a {
-		@apply text-gray-800 bg-black/10 py-1 px-3 rounded-full text-sm duration-300;
+		@apply bg-blue-600 text-white py-2 px-6 font-semibold rounded-full duration-300;
 		&:hover {
-			@apply bg-black/20;
+			@apply bg-blue-700;
 		}
 	}
 	button {

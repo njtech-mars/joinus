@@ -23,7 +23,7 @@ func SetupConfig() {
 	}
 
 	if Config.Port == "" {
-		Config.Port = "4000"
+		Config.Port = "5000"
 	}
 
 	if err := validator.New().Struct(&Config); err != nil {

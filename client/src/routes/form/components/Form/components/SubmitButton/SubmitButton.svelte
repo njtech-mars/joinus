@@ -5,6 +5,7 @@
 	import Spinner from '$components/Spinner/Spinner.svelte';
 
 	export let pending: boolean;
+	export let confirm: boolean;
 
 	onMount(async () => {
 		const student_id = localStorage.getItem('student_id');
@@ -17,7 +18,7 @@
 <div class="flex flex-row gap-4">
 	<a href="/" type="button"> 返回 </a>
 
-	<button disabled={pending} type="submit">
+	<button disabled={pending} type="button" on:click={() => (confirm = true)}>
 		{#if pending}
 			<Spinner />
 		{/if}

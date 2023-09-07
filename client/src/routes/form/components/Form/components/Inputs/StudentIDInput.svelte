@@ -26,7 +26,7 @@
 		<span>学号</span>
 		<span class="text-red-600">*</span>
 	</h1>
-	<label for="student_id" class="label">学号是你的个人ID，请确保学号的准确性和一致性</label>
+	<label for="student_id" class="label">学号是你的个人ID，请确保你学号的准确性</label>
 	<input
 		id="student_id"
 		name="student_id"

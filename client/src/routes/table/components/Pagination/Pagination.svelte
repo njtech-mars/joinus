@@ -19,8 +19,7 @@
 
 	async function handleClick(page: number) {
 		pending = true;
-		const toastId = toasts.add('数据刷新中，请稍后...', 'pending');
-		if (await fetchApplicants(page)) toasts.update(toastId, { message: '刷新成功', status: 'success' });
+		if (!(await fetchApplicants(page))) toasts.add('无法加载下一页', 'failed');
 		pending = false;
 	}
 </script>

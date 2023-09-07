@@ -1,4 +1,4 @@
-# Mars 工作室名表单 ![docker](https://github.com/njtech-mars/joinus/actions/workflows/docker.yml/badge.svg)
+# Mars 工作室名报名表单 ![docker](https://github.com/njtech-mars/joinus/actions/workflows/docker.yml/badge.svg)
 
 本项目采用 monorepo 的形式，将前后端放在一个 git 仓库当中。
 
@@ -10,7 +10,7 @@
 
 | 变量名       | 解释                     | 备注              |
 | :----------- | :----------------------- | :---------------- |
-| PORT         | 项目监听端口             | 可选，默认为 4000 |
+| PORT         | 项目监听端口             | 可选，默认为 5000 |
 | CORS         | 允许 Cors 的地址         | 可选，默认为 空   |
 | ADMIN_PASS   | 用来登录后台的管理员密码 | 必需              |
 | OUTLOOK_USER | outlook 邮箱地址         | 必需              |
@@ -24,7 +24,7 @@
 
 理论上本项目是不需要 Docker 就可以启动的，但是使用 Docker 可以方便管理和部署。
 
-新建一个 docker-compose.yaml 文件，根据需要其中的环境变量：
+新建一个 docker-compose.yaml 文件，根据需要修改其中的环境变量：
 
 ```yaml
 version: "3"
@@ -33,10 +33,10 @@ services:
     image: mraddict063/mars-joinus
     restart: unless-stopped
     ports:
-      - 4000:4000
+      - 5000:5000
     environment:
-      - ADMIN_PASS=password
-      - OUTLOOK_PASS=password
+      - ADMIN_PASS=admin_password
+      - OUTLOOK_PASS=outlook_password
       - OUTLOOK_USER=user@outlook.com
     volumes:
       - ./data:/data

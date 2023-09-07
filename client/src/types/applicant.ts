@@ -1,5 +1,7 @@
 import z from 'zod';
 
+const Options = z.enum(['项目部', '运维部', '资源部', '设计部']);
+
 const SubmitApplicant = z.object({
 	name: z.string().min(2).max(20),
 	gender: z.enum(['男', '女']),
@@ -8,7 +10,9 @@ const SubmitApplicant = z.object({
 	student_id: z.string().length(12),
 	college: z.string().max(50),
 	major: z.string().max(50),
-	introduction: z.string().min(4).max(500)
+	introduction: z.string().min(4).max(500),
+	first_choice: Options,
+	second_choice: Options
 });
 
 const Applicant = z.object({ id: z.number(), submitted_at: z.string() }).merge(SubmitApplicant);

@@ -27,7 +27,7 @@
 		<span>邮箱</span>
 		<span class="text-red-600">*</span>
 	</h1>
-	<label for="email" class="label">我们会将面试相关事宜通过邮件的形式发送给你，请保证你的邮件地址可用</label>
+	<label for="email" class="label">我们会将面试相关事宜通过邮件的形式发送给你，请确保你的邮箱地址可用</label>
 	<input
 		id="email"
 		name="email"

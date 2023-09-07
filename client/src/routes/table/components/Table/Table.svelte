@@ -37,6 +37,12 @@
 				{#if tableFilter.created_at}
 					<th>提交时间</th>
 				{/if}
+				{#if tableFilter.first_choice}
+					<th>第一志愿</th>
+				{/if}
+				{#if tableFilter.second_choice}
+					<th>第二志愿</th>
+				{/if}
 				{#if tableFilter.introduction}
 					<th>自我介绍</th>
 				{/if}
@@ -69,6 +75,12 @@
 					{/if}
 					{#if tableFilter.created_at}
 						<td>{formatDate(applicant.submitted_at)}</td>
+					{/if}
+					{#if tableFilter.first_choice}
+						<td>{applicant.first_choice}</td>
+					{/if}
+					{#if tableFilter.second_choice}
+						<td>{applicant.second_choice}</td>
 					{/if}
 					{#if tableFilter.introduction}
 						<td class="whitespace-pre-wrap">{applicant.introduction}</td>

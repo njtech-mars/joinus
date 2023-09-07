@@ -16,10 +16,12 @@
 		gender: true,
 		email: false,
 		qq: false,
-		student_id: true,
+		student_id: false,
 		college: true,
 		major: true,
 		created_at: false,
+		first_choice: true,
+		second_choice: true,
 		introduction: true
 	};
 

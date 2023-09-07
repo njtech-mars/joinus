@@ -17,8 +17,8 @@
 
 	async function handleRefresh() {
 		pending = true;
-		const toastId = toasts.add('数据刷新中，请稍后...', 'pending');
-		if (await fetchApplicants()) toasts.update(toastId, { message: '刷新成功', status: 'success' });
+		if (await fetchApplicants()) toasts.add('刷新成功', 'success');
+		else toasts.add('刷新失败', 'failed');
 		pending = false;
 	}
 </script>
@@ -74,6 +74,14 @@
 				<label for="created_at">提交时间</label>
 			</div>
 			<div class="option">
+				<input type="checkbox" id="first_choice" bind:checked={tableFilter.first_choice} />
+				<label for="first_choice">第一志愿</label>
+			</div>
+			<div class="option">
+				<input type="checkbox" id="second_choice" bind:checked={tableFilter.second_choice} />
+				<label for="second_choice">第二志愿</label>
+			</div>
+			<div class="option">
 				<input type="checkbox" id="introduction" bind:checked={tableFilter.introduction} />
 				<label for="introduction">自我介绍</label>
 			</div>
@@ -86,14 +94,14 @@
 		@apply flex flex-row items-center gap-4;
 	}
 	h1 {
-		@apply flex flex-row items-center gap-0.5;
+		@apply flex flex-row items-center gap-1 text-gray-800;
 		& span {
-			@apply text-gray-800;
+			@apply text-lg font-semibold;
 		}
 		& button {
-			@apply text-gray-600 w-4;
+			@apply w-5;
 			&:hover {
-				@apply text-gray-800;
+				@apply text-blue-600;
 			}
 		}
 	}

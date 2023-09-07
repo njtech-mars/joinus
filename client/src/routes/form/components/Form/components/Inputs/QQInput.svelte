@@ -27,7 +27,7 @@
 		<span>QQ</span>
 		<span class="text-red-600">*</span>
 	</h1>
-	<label for="qq" class="label">我们联系你的备用方案</label>
+	<label for="qq" class="label">我们联系你的备用方案，请填写正确的QQ号</label>
 	<input
 		id="qq"
 		name="qq"

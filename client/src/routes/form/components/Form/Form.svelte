@@ -1,27 +1,30 @@
 <script lang="ts">
 	import inputs from '$stores/inputs';
 	import toasts from '$stores/toasts';
+	import sendEmail from './lib/sendEmail';
 	import applicant from '$stores/applicant';
 	import submitForm from './lib/submitForm';
 	import scrollToFirstError from './lib/scrollToFirstError';
 
 	import type { Status } from '$types/status';
 
+	import Popup from './components/Popup/Popup.svelte';
 	import Header from './components/Header/Header.svelte';
 	import SubmitButton from './components/SubmitButton/SubmitButton.svelte';
 
-	import NameInput from './components/NameInput/NameInput.svelte';
-	import GenderSelect from './components/GenderSelect/GenderSelect.svelte';
-	import EmailInput from './components/EmailInput/EmailInput.svelte';
-	import QQInput from './components/QQInput/QQInput.svelte';
-	import StudentIdInput from './components/StudentIDInput/StudentIDInput.svelte';
-	import CollegeInput from './components/CollegeInput/CollegeInput.svelte';
-	import MajorInput from './components/MajorInput/MajorInput.svelte';
-	import IntroductionInput from './components/IntroductionInput/IntroductionInput.svelte';
-	import sendEmail from './lib/sendEmail';
+	import NameInput from './components/Inputs/NameInput.svelte';
+	import GenderSelect from './components/Inputs/GenderSelect.svelte';
+	import EmailInput from './components/Inputs/EmailInput.svelte';
+	import QQInput from './components/Inputs/QQInput.svelte';
+	import StudentIdInput from './components/Inputs/StudentIDInput.svelte';
+	import CollegeInput from './components/Inputs/CollegeInput.svelte';
+	import MajorInput from './components/Inputs/MajorInput.svelte';
+	import IntroductionInput from './components/Inputs/IntroductionInput.svelte';
+	import ChoiceSelect from './components/Inputs/ChoiceSelect.svelte';
 
 	export let status: Status;
 
+	let confirm = false;
 	let pending = false;
 
 	async function handleSubmit(event: SubmitEvent) {
@@ -48,6 +51,7 @@
 
 <form on:submit|preventDefault={handleSubmit} class="w-full max-w-2xl flex flex-col items-end gap-7">
 	<Header />
+	<Popup bind:confirm />
 
 	<NameInput defaultValue={$applicant?.name || ''} />
 	<GenderSelect defaultValue={$applicant?.gender || '男'} />
@@ -56,7 +60,11 @@
 	<StudentIdInput defaultValue={$applicant?.student_id || ''} />
 	<CollegeInput defaultValue={$applicant?.college || ''} />
 	<MajorInput defaultValue={$applicant?.major || ''} />
+	<ChoiceSelect
+		defaultFirstChoice={$applicant?.first_choice || '项目部'}
+		defaultSecondChoice={$applicant?.second_choice || '运维部'}
+	/>
 	<IntroductionInput defaultValue={$applicant?.introduction || ''} />
 
-	<SubmitButton {pending} />
+	<SubmitButton {pending} bind:confirm />
 </form>
