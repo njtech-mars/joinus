@@ -1,4 +1,4 @@
-# Mars 工作室名报名表单 ![docker](https://github.com/njtech-mars/joinus/actions/workflows/docker.yml/badge.svg)
+# Mars 工作室报名表单 ![docker](https://github.com/njtech-mars/joinus/actions/workflows/docker.yml/badge.svg)
 
 本项目采用 monorepo 的形式，将前后端放在一个 git 仓库当中。
 
@@ -18,7 +18,7 @@
 
 ## 2. 部署项目
 
-本项目可以通过编译成单个可执行文件，同时包含前端、后端和数据库，经优化编译后的可执行文件不到 **7M**！
+本项目可以通过编译成单个可执行文件，同时包含前端、后端和数据库，经优化编译后的可执行文件只有 **7M** 多！
 
 如果你想了解如何编译的话可以参考本项目的 [Dockerfile](Dockerfile)。
 
@@ -29,7 +29,7 @@
 ```yaml
 version: "3"
 services:
-  joinus:
+  mars-joinus:
     image: mraddict063/mars-joinus
     restart: unless-stopped
     ports:
