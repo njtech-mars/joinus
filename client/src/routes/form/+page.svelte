@@ -25,8 +25,8 @@
 	{:else if status === 'done'}
 		<Message
 			bind:status
-			title={applicant ? '更新成功' : '提交成功'}
-			message={applicant
+			title={$applicant ? '更新成功' : '提交成功'}
+			message={$applicant
 				? '恭喜你信息更新成功，但是请勿频繁更新信息，这可能会导致我们后台数据不同步'
 				: '恭喜你提交成功，我们会尽快通过邮件的方式通知你面试事宜，你也可以加群和我们反馈'}
 		/>

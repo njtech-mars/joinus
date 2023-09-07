@@ -11,7 +11,6 @@
 
 	function handleChange(event: Event) {
 		const value = (event.target as HTMLInputElement).value;
-		console.log(value);
 		inputs.update('name', value);
 	}
 

@@ -71,7 +71,7 @@
 						<td>{formatDate(applicant.submitted_at)}</td>
 					{/if}
 					{#if tableFilter.introduction}
-						<td>{applicant.introduction}</td>
+						<td class="whitespace-pre-wrap">{applicant.introduction}</td>
 					{/if}
 				</tr>
 			{/each}

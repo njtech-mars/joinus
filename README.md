@@ -35,7 +35,7 @@ services:
     ports:
       - 4000:4000
     environment:
-      - PASSWORD=password
+      - ADMIN_PASS=password
       - OUTLOOK_PASS=password
       - OUTLOOK_USER=user@outlook.com
     volumes:
