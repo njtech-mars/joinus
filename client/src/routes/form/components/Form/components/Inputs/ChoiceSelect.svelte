@@ -30,10 +30,10 @@
 	</h1>
 	<label for="first_choice" class="label">工作室你最想加入的部门，我们会优先考虑你的第一志愿</label>
 	<select id="first_choice" name="first_choice" class="input" bind:value={first_choice} on:change={handleChange}>
-		<option value="项目部">项目部</option>
-		<option value="运维部">运维部</option>
-		<option value="资源部">资源部</option>
+		<option value="开发部">开发部</option>
+		<option value="运营部">运营部</option>
 		<option value="设计部">设计部</option>
+		<option value="活动部">活动部</option>
 	</select>
 	<p class="err-msg">{error}</p>
 </div>
@@ -45,10 +45,10 @@
 	</h1>
 	<label for="second_choice" class="label">工作室你还想加入的部门，请勿与第一志愿相同</label>
 	<select id="second_choice" name="second_choice" class="input" bind:value={second_choice} on:change={handleChange}>
-		<option value="运维部">运维部</option>
-		<option value="项目部">项目部</option>
-		<option value="资源部">资源部</option>
+		<option value="运营部">运营部</option>
+		<option value="开发部">开发部</option>
 		<option value="设计部">设计部</option>
+		<option value="活动部">活动部</option>
 	</select>
 	<p class="err-msg">{error}</p>
 </div>

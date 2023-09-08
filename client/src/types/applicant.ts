@@ -1,6 +1,6 @@
 import z from 'zod';
 
-const Options = z.enum(['项目部', '运维部', '资源部', '设计部']);
+const Options = z.enum(['开发部', '运营部', '设计部', '活动部']);
 
 const SubmitApplicant = z.object({
 	name: z.string().min(2).max(20),

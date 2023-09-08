@@ -61,8 +61,8 @@
 	<CollegeInput defaultValue={$applicant?.college || ''} />
 	<MajorInput defaultValue={$applicant?.major || ''} />
 	<ChoiceSelect
-		defaultFirstChoice={$applicant?.first_choice || '项目部'}
-		defaultSecondChoice={$applicant?.second_choice || '运维部'}
+		defaultFirstChoice={$applicant?.first_choice || '开发部'}
+		defaultSecondChoice={$applicant?.second_choice || '运营部'}
 	/>
 	<IntroductionInput defaultValue={$applicant?.introduction || ''} />
 
