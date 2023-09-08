@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Collapse from './Collapse.svelte';
+	import background from './background.png';
 
 	const departments = [
 		{
@@ -26,6 +27,7 @@
 
 <div class="wrapper">
 	<h1 class="title">部门介绍</h1>
+	<img src={background} alt="background" class="w-full max-w-xs" />
 	<div class="w-full max-w-xl rounded-md">
 		{#each departments as department (department.name)}
 			<Collapse {department} />
