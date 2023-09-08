@@ -35,6 +35,7 @@
 		class="input"
 		placeholder="输入你的邮箱"
 		value={defaultValue}
+		readonly={defaultValue !== ''}
 		on:change={handleChange}
 	/>
 	<p class="err-msg">{error}</p>
