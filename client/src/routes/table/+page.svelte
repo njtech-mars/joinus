@@ -20,6 +20,7 @@
 		college: true,
 		major: true,
 		created_at: false,
+		email_status: true,
 		first_choice: true,
 		second_choice: true,
 		introduction: true

@@ -12,6 +12,10 @@ import (
 var Config models.ConfigType
 
 func SetupConfig() {
+	if _, err := os.Stat("data/template.html"); err != nil {
+		log.Fatal("Please add data/template.html")
+	}
+
 	godotenv.Load()
 
 	Config = models.ConfigType{

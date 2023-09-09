@@ -3,6 +3,7 @@
 	import formatDate from '$lib/utils/formatDate';
 	import type { TableFilter } from '$types/tableFilter';
 	import type { ApplicantType } from '$types/applicant';
+	import SendEmail from './SendEmail.svelte';
 
 	export let tableFilter: TableFilter;
 	export let applicants: ApplicantType[];
@@ -43,6 +44,9 @@
 				{#if tableFilter.second_choice}
 					<th>第二志愿</th>
 				{/if}
+				{#if tableFilter.email_status}
+					<th>邮件通知</th>
+				{/if}
 				{#if tableFilter.introduction}
 					<th>自我介绍</th>
 				{/if}
@@ -81,6 +85,9 @@
 					{/if}
 					{#if tableFilter.second_choice}
 						<td>{applicant.second_choice}</td>
+					{/if}
+					{#if tableFilter.email_status}
+						<td><SendEmail {applicant} /></td>
 					{/if}
 					{#if tableFilter.introduction}
 						<td class="whitespace-pre-wrap">{applicant.introduction}</td>

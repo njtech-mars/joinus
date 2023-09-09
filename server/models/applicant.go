@@ -2,9 +2,15 @@ package models
 
 import "time"
 
+type EmailRecord struct {
+	Sent_At time.Time `json:"sent_at"`
+	Status  string    `json:"status"`
+}
+
 type Applicant struct {
 	ID            uint      `json:"id" gorm:"primaryKey"`
 	Submitted_At  time.Time `json:"submitted_at"`
+	Email_Status  string    `json:"email_status"`
 	Name          string    `json:"name" validate:"required,min=2,max=20"`
 	Gender        string    `json:"gender" validate:"required,oneof=男 女"`
 	Email         string    `json:"email" validate:"required,email,max=320"`

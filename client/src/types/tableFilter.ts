@@ -7,6 +7,7 @@ interface TableFilter {
 	college: boolean;
 	major: boolean;
 	created_at: boolean;
+	email_status: boolean;
 	first_choice: boolean;
 	second_choice: boolean;
 	introduction: boolean;

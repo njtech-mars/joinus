@@ -42,7 +42,14 @@ services:
       - ./data:/data
 ```
 
-然后使用下面的命令启动项目即可：
+然后新建一个 data 文件夹，在其中放入一个用来发送邮件的模板文件，文件名为 `template.html`，下面是一个例子：
+
+```html
+<h1>{{.Name}}同学你好</h1>
+<p>欢迎你报名Mars工作室</p>
+```
+
+最后启动项目即可：
 
 ```sh
 docker-compose up -d

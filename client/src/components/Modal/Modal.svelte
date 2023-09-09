@@ -28,7 +28,7 @@
 		}
 	}
 	.modal {
-		@apply w-full h-full flex flex-col items-center justify-center;
+		@apply w-full h-full flex flex-col items-center justify-center px-4;
 		&.active {
 			animation: zoom 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 		}

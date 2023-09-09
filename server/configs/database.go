@@ -17,7 +17,7 @@ func ConnectDb() {
 		log.Fatal(err)
 	}
 
-	db.AutoMigrate(&models.Applicant{}, &models.EmailRecord{})
+	db.AutoMigrate(&models.Applicant{})
 
 	Db = db
 }

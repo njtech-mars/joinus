@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import applicant from '$stores/applicant';
-	import fetchApplicant from '../../lib/fetchApplicant';
+	import fetchApplicant from '$lib/applicant/fetchApplicant';
+
 	import Spinner from '$components/Spinner/Spinner.svelte';
 
 	export let pending: boolean;

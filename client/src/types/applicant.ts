@@ -10,12 +10,14 @@ const SubmitApplicant = z.object({
 	student_id: z.string().length(12),
 	college: z.string().max(50),
 	major: z.string().max(50),
-	introduction: z.string().min(4).max(500),
 	first_choice: Options,
-	second_choice: Options
+	second_choice: Options,
+	introduction: z.string().min(4).max(500)
 });
 
-const Applicant = z.object({ id: z.number(), submitted_at: z.string() }).merge(SubmitApplicant);
+const Applicant = z
+	.object({ id: z.number(), submitted_at: z.string(), email_status: z.enum(['none', 'success', 'failed']) })
+	.merge(SubmitApplicant);
 
 type ApplicantType = z.TypeOf<typeof Applicant>;
 

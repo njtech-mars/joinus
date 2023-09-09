@@ -8,6 +8,5 @@ import (
 )
 
 func EmailRoute(app *fiber.App) {
-	app.Get("/api/email", middlewares.Auth, controllers.EmailQuery)
 	app.Post("/api/email", middlewares.Limitter(2, 30), controllers.EmailSend)
 }

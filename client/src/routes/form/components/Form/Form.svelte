@@ -1,9 +1,9 @@
 <script lang="ts">
 	import inputs from '$stores/inputs';
 	import toasts from '$stores/toasts';
-	import sendEmail from './lib/sendEmail';
-	import applicant from '$stores/applicant';
 	import submitForm from './lib/submitForm';
+	import applicant from '$stores/applicant';
+	import sendEmail from '$lib/email/sendEmail';
 	import scrollToFirstError from './lib/scrollToFirstError';
 
 	import type { Status } from '$types/status';
@@ -40,7 +40,7 @@
 				localStorage.setItem('student_id', studentId);
 
 				// send email
-				const sendEmailResult = await sendEmail(studentId);
+				const sendEmailResult = await sendEmail(studentId, true);
 				if (!sendEmailResult.success) toasts.add(sendEmailResult.message, 'failed');
 			} else toasts.add(submitResult.message, 'failed');
 
