@@ -82,7 +82,7 @@ func ApplicantsQuery(c *fiber.Ctx) error {
 func ApplicantsDownload(c *fiber.Ctx) error {
 	// query databse
 	var applicants []models.Applicant
-	if err := configs.Db.Find(&applicants).Error; err != nil {
+	if err := configs.Db.Order("submitted_at desc").Find(&applicants).Error; err != nil {
 		return c.Status(500).JSON(models.Response{Success: false, Message: "服务器内部错误", Data: err.Error()})
 	}
 

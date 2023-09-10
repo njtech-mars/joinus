@@ -15,7 +15,7 @@
 		const id = toasts.add('邮件发送中...', 'pending');
 		const result = await sendEmail(applicant.student_id, false);
 		toasts.update(id, { message: result.message, status: result.success ? 'success' : 'failed' });
-		fetchApplicants();
+		if (result.success) fetchApplicants();
 	}
 </script>
 

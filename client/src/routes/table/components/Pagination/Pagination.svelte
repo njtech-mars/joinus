@@ -19,7 +19,8 @@
 
 	async function handleClick(page: number) {
 		pending = true;
-		if (!(await fetchApplicants(page))) toasts.add('无法加载下一页', 'failed');
+		if (await fetchApplicants(page)) window.scrollTo({ top: 0 });
+		else toasts.add('无法加载下一页', 'failed');
 		pending = false;
 	}
 </script>
