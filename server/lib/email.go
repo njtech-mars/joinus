@@ -31,7 +31,7 @@ func SendEmail(email string, name string) error {
 	}
 
 	message := gomail.NewMessage()
-	message.SetAddressHeader("From", configs.Config.OutlookUser, "Mars工作室")
+	message.SetAddressHeader("From", configs.Config.SMTPUser, "Mars工作室")
 	message.SetHeader("To", email)
 	message.SetHeader("Subject", name+"同学你好")
 	message.SetBody("text/html", body)

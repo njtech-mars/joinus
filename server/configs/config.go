@@ -19,11 +19,13 @@ func SetupConfig() {
 	godotenv.Load()
 
 	Config = models.ConfigType{
-		Port:            os.Getenv("PORT"),
-		Cors:            os.Getenv("CORS"),
-		AdminPassword:   os.Getenv("ADMIN_PASS"),
-		OutlookUser:     os.Getenv("OUTLOOK_USER"),
-		OutlookPassword: os.Getenv("OUTLOOK_PASS"),
+		Port:          os.Getenv("PORT"),
+		Cors:          os.Getenv("CORS"),
+		AdminPassword: os.Getenv("ADMIN_PASS"),
+		SMTPUser:      os.Getenv("SMTP_USER"),
+		SMTPPass:      os.Getenv("SMTP_PASS"),
+		SMTPHOST:      os.Getenv("SMTP_HOST"),
+		SMTPPort:      os.Getenv("SMTP_PORT"),
 	}
 
 	if Config.Port == "" {

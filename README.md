@@ -6,15 +6,17 @@
 
 ## 1. 环境变量
 
-本项目用到了以下几个环境变量：
+本项目用到了以下几个环境变量，其中邮箱用的是 TSL 通道，端口应该是 465：
 
-| 变量名       | 解释                     | 备注              |
-| :----------- | :----------------------- | :---------------- |
-| PORT         | 项目监听端口             | 可选，默认为 5000 |
-| CORS         | 允许 Cors 的地址         | 可选，默认为 空   |
-| ADMIN_PASS   | 用来登录后台的管理员密码 | 必需              |
-| OUTLOOK_USER | outlook 邮箱地址         | 必需              |
-| OUTLOOK_PASS | outlook 邮箱密码         | 必需              |
+| 变量名     | 解释                     | 备注              |
+| :--------- | :----------------------- | :---------------- |
+| PORT       | 项目监听端口             | 可选，默认为 5000 |
+| CORS       | 允许 Cors 的地址         | 可选，默认为 空   |
+| ADMIN_PASS | 用来登录后台的管理员密码 | 必需              |
+| SMTP_USER  | SMTP 用户名              | 必需              |
+| SMTP_PASS  | SMTP 密码                | 必需              |
+| SMTP_HOST  | SMTP 主机地址            | 必需              |
+| SMTP_PORT  | SMTP 主机端口            | 必需              |
 
 ## 2. 部署项目
 
@@ -30,8 +32,10 @@ services:
       - 5000:5000
     environment:
       - ADMIN_PASS=admin_password
-      - OUTLOOK_PASS=outlook_password
-      - OUTLOOK_USER=user@outlook.com
+      - SMTP_PASS=smtp_password
+      - SMTP_USER=smtp_username
+      - SMTP_HOST=smtp_host
+      - SMTP_PORT=smtp_port
     volumes:
       - ./data:/data
 ```
