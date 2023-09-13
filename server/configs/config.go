@@ -26,10 +26,15 @@ func SetupConfig() {
 		SMTPPass:      os.Getenv("SMTP_PASS"),
 		SMTPHOST:      os.Getenv("SMTP_HOST"),
 		SMTPPort:      os.Getenv("SMTP_PORT"),
+		SMTPTLS:       os.Getenv("SMTP_TLS"),
 	}
 
 	if Config.Port == "" {
 		Config.Port = "5000"
+	}
+
+	if Config.SMTPTLS == "" {
+		Config.SMTPTLS = "true"
 	}
 
 	if err := validator.New().Struct(&Config); err != nil {

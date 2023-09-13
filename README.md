@@ -6,17 +6,23 @@
 
 ## 1. 环境变量
 
-本项目用到了以下几个环境变量，其中邮箱用的是 TSL 通道，端口应该是 465：
+本项目用到了以下几个环境变量：
 
-| 变量名     | 解释                     | 备注              |
-| :--------- | :----------------------- | :---------------- |
-| PORT       | 项目监听端口             | 可选，默认为 5000 |
-| CORS       | 允许 Cors 的地址         | 可选，默认为 空   |
-| ADMIN_PASS | 用来登录后台的管理员密码 | 必需              |
-| SMTP_USER  | SMTP 用户名              | 必需              |
-| SMTP_PASS  | SMTP 密码                | 必需              |
-| SMTP_HOST  | SMTP 主机地址            | 必需              |
-| SMTP_PORT  | SMTP 主机端口            | 必需              |
+| 变量名     | 解释                     | 类型    | 备注              |
+| :--------- | :----------------------- | :------ | :---------------- |
+| PORT       | 项目监听端口             | number  | 可选，默认为 5000 |
+| CORS       | 允许 Cors 的地址         | string  | 可选，默认为 空   |
+| ADMIN_PASS | 用来登录后台的管理员密码 | string  | 必需              |
+| SMTP_USER  | SMTP 用户名              | string  | 必需              |
+| SMTP_PASS  | SMTP 密码                | string  | 必需              |
+| SMTP_HOST  | SMTP 主机地址            | string  | 必需              |
+| SMTP_PORT  | SMTP 主机端口            | number  | 必需              |
+| SMTP_TLS   | SMTP TSL 模式            | boolean | 可选，默认为 true |
+
+> 注意：
+>
+> - CORS 是用来添加允许的跨域域名的，比如本地开发地址 http://localhost:5173
+> - SMTP_TLS 表示你的 SMTP 服务器是否用的是 TSL 通道，习惯上 TSL 用端口 465，非 TLS 用端口 587
 
 ## 2. 部署项目
 
@@ -36,6 +42,7 @@ services:
       - SMTP_USER=smtp_username
       - SMTP_HOST=smtp_host
       - SMTP_PORT=smtp_port
+      - SMTP_TLS=true
     volumes:
       - ./data:/data
 ```

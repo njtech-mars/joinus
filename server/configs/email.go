@@ -15,6 +15,14 @@ func SetupEmail() {
 	if err != nil {
 		log.Fatal("Invalid SMTP port")
 	}
+	tlsMode, err := strconv.ParseBool(Config.SMTPTLS)
+	if err != nil {
+		log.Fatal("SMTP_TLS should be boolean type")
+	}
+
 	Email = gomail.NewDialer(Config.SMTPHOST, port, Config.SMTPUser, Config.SMTPPass)
-	Email.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+
+	if tlsMode {
+		Email.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+	}
 }
