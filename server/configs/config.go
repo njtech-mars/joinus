@@ -33,10 +33,6 @@ func SetupConfig() {
 		Config.Port = "5000"
 	}
 
-	if Config.SMTPTLS == "" {
-		Config.SMTPTLS = "true"
-	}
-
 	if err := validator.New().Struct(&Config); err != nil {
 		log.Fatal(err)
 	}

@@ -6,9 +6,11 @@
 	export let defaultSecondChoice: string;
 
 	let error = '';
-	let first_choice = defaultFirstChoice;
-	let second_choice = defaultSecondChoice;
+	let first_choice = '开发部';
+	let second_choice = '运营部';
 
+	$: first_choice = defaultFirstChoice;
+	$: second_choice = defaultSecondChoice;
 	$: inputs.register('first_choice', first_choice + ',' + second_choice, validate);
 	$: error = $inputs.find((input) => input.id === 'first_choice')?.error || '';
 

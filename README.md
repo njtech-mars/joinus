@@ -17,12 +17,12 @@
 | SMTP_PASS  | SMTP 密码                | string  | 必需              |
 | SMTP_HOST  | SMTP 主机地址            | string  | 必需              |
 | SMTP_PORT  | SMTP 主机端口            | number  | 必需              |
-| SMTP_TLS   | SMTP TSL 模式            | boolean | 可选，默认为 true |
+| SMTP_TLS   | SMTP TLS 模式            | boolean | 必需              |
 
 > 注意：
 >
 > - CORS 是用来添加允许的跨域域名的，比如本地开发地址 http://localhost:5173
-> - SMTP_TLS 表示你的 SMTP 服务器是否用的是 TSL 通道，习惯上 TSL 用端口 465，非 TLS 用端口 587
+> - SMTP_TLS 表示你的 SMTP 服务器是否用的是 TLS 通道，习惯上 TLS 用端口 465，非 TLS 用端口 587
 
 ## 2. 部署项目
 

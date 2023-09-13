@@ -8,5 +8,5 @@ type ConfigType struct {
 	SMTPPass      string `validate:"required"`
 	SMTPHOST      string `validate:"required"`
 	SMTPPort      string `validate:"required,number"`
-	SMTPTLS       string `validate:"omitempty"`
+	SMTPTLS       string `validate:"required"`
 }
