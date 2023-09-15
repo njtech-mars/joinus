@@ -20,9 +20,9 @@
 		college: false,
 		major: false,
 		created_at: false,
-		email_status: true,
 		first_choice: true,
 		second_choice: true,
+		email_status: true,
 		introduction: true
 	};
 

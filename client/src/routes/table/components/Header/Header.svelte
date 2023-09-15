@@ -82,6 +82,10 @@
 				<label for="second_choice">第二志愿</label>
 			</div>
 			<div class="option">
+				<input type="checkbox" id="email_status" bind:checked={tableFilter.email_status} />
+				<label for="email_status">邮件通知</label>
+			</div>
+			<div class="option">
 				<input type="checkbox" id="introduction" bind:checked={tableFilter.introduction} />
 				<label for="introduction">自我介绍</label>
 			</div>
