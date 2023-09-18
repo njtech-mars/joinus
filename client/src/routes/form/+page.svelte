@@ -10,8 +10,8 @@
 	let status: Status;
 
 	onMount(async () => {
-		const student_id = localStorage.getItem('student_id');
-		status = student_id ? 'submitted' : 'idle';
+		if (new Date() > new Date('2023-09-21T15:59:59.000Z')) status = 'expired';
+		else status = localStorage.getItem('student_id') ? 'submitted' : 'idle';
 	});
 </script>
 
@@ -22,6 +22,11 @@
 <main>
 	{#if status === 'idle'}
 		<Form bind:status />
+	{:else if status === 'expired'}
+		<Message
+			title="报名已截至"
+			message="对不起，报名已截至，如果你还想加入我们可以发送邮件至 njtech-mars@outlook.com"
+		/>
 	{:else if status === 'done'}
 		<Message
 			bind:status

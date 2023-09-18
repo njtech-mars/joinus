@@ -1,3 +1,3 @@
-type Status = 'done' | 'idle' | 'submitted';
+type Status = 'done' | 'idle' | 'submitted' | 'expired';
 
 export type { Status };

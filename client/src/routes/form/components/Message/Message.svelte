@@ -3,9 +3,9 @@
 
 	import Flower from '$components/Icons/Flower/Flower.svelte';
 
-	export let status: Status;
-	export let message: string;
 	export let title: string;
+	export let message: string;
+	export let status: Status | undefined = undefined;
 </script>
 
 <div>
@@ -13,7 +13,9 @@
 	<h1>{title}</h1>
 	<p>{message}</p>
 	<a href="/">返回</a>
-	<button type="button" on:click={() => (status = 'idle')}>表单有误，我要重新提交</button>
+	{#if status}
+		<button type="button" on:click={() => (status = 'idle')}>表单有误，我要重新提交</button>
+	{/if}
 </div>
 
 <style lang="postcss">
