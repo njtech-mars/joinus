@@ -105,7 +105,9 @@ func ApplicantsDownload(c *fiber.Ctx) error {
 	file.SetCellValue(name, "H1", "专业")
 	file.SetCellValue(name, "I1", "提交时间")
 	file.SetCellValue(name, "J1", "邮件通知")
-	file.SetCellValue(name, "K1", "自我介绍")
+	file.SetCellValue(name, "K1", "第一志愿")
+	file.SetCellValue(name, "L1", "第二志愿")
+	file.SetCellValue(name, "M1", "自我介绍")
 
 	// write data to sheet
 	for i, d := range applicants {
@@ -127,18 +129,20 @@ func ApplicantsDownload(c *fiber.Ctx) error {
 		file.SetCellValue(name, "H"+fmt.Sprintf("%d", row), d.Major)
 		file.SetCellValue(name, "I"+fmt.Sprintf("%d", row), d.Submitted_At.Format("2006-01-02 15:04"))
 		file.SetCellValue(name, "J"+fmt.Sprintf("%d", row), status)
-		file.SetCellValue(name, "K"+fmt.Sprintf("%d", row), d.Introduction)
+		file.SetCellValue(name, "K"+fmt.Sprintf("%d", row), d.First_Choice)
+		file.SetCellValue(name, "L"+fmt.Sprintf("%d", row), d.Second_Choice)
+		file.SetCellValue(name, "M"+fmt.Sprintf("%d", row), d.Introduction)
 	}
 
 	// setup collum with
-	file.SetColWidth(name, "D", "J", 17)
-	file.SetColWidth(name, "K", "K", 100)
+	file.SetColWidth(name, "D", "L", 17)
+	file.SetColWidth(name, "M", "M", 100)
 
 	// setup sheet style
 	wrapStyle, _ := file.NewStyle(&excelize.Style{Alignment: &excelize.Alignment{WrapText: true}})
 	alignStyle, _ := file.NewStyle(&excelize.Style{Alignment: &excelize.Alignment{Vertical: "top", Horizontal: "left"}})
-	file.SetColStyle(name, "K", wrapStyle)
-	file.SetColStyle(name, "A:J", alignStyle)
+	file.SetColStyle(name, "M", wrapStyle)
+	file.SetColStyle(name, "A:L", alignStyle)
 
 	// Set the appropriate headers for the response
 	c.Set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
