@@ -120,7 +120,7 @@ func ApplicantsDownload(c *fiber.Ctx) error {
 		file.SetCellValue(name, "A"+fmt.Sprintf("%d", row), i+1)
 		file.SetCellValue(name, "B"+fmt.Sprintf("%d", row), d.Name)
 		file.SetCellValue(name, "C"+fmt.Sprintf("%d", row), d.Gender)
-		file.SetCellValue(name, "D"+fmt.Sprintf("%d", row), d.Email+status)
+		file.SetCellValue(name, "D"+fmt.Sprintf("%d", row), d.Email)
 		file.SetCellValue(name, "E"+fmt.Sprintf("%d", row), d.QQ)
 		file.SetCellValue(name, "F"+fmt.Sprintf("%d", row), d.Student_ID)
 		file.SetCellValue(name, "G"+fmt.Sprintf("%d", row), d.College)
