@@ -23,10 +23,7 @@
 	{#if status === 'idle'}
 		<Form bind:status />
 	{:else if status === 'expired'}
-		<Message
-			title="报名已截至"
-			message="对不起，报名已截至，如果你还想加入我们可以发送邮件至 njtech-mars@outlook.com"
-		/>
+		<Message title="报名已截至" message="对不起，报名已截至，如果你还想加入我们可以前往首页加群联系我们" />
 	{:else if status === 'done'}
 		<Message
 			bind:status
